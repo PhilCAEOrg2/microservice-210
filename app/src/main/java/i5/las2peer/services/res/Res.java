@@ -89,7 +89,7 @@ public class Res extends RESTService {
    * 
    * @param body descr a JSONObject
    * 
-   * @return Response 
+   * @return Response descr
    * 
    */
   @POST
@@ -97,18 +97,12 @@ public class Res extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "res")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "descr")
   })
   @ApiOperation(value = "posttest", notes = " ")
   public Response posttest(String body) {
-   classes.User payloadbodyObject = new classes().new User();
-   try { 
-       payloadbodyObject.fromJSON(body);
-   } catch (Exception e) { 
-       e.printStackTrace();
-       JSONObject result = new JSONObject();
-       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
-   }
+    JSONObject body_JSON = (JSONObject) JSONValue.parse(body);
+
 
 
 
@@ -123,7 +117,7 @@ public class Res extends RESTService {
     // res
     boolean res_condition = true;
     if(res_condition) {
-      JSONObject res = new classes().new User().toJSON();
+      JSONObject res = new JSONObject();
 
       
 
