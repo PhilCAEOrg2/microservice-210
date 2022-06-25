@@ -129,7 +129,8 @@ public class ResTest {
         
     try {
       c.setLogin(AnonymousAgentImpl.IDENTIFIER, "");
-      ClientResponse result = c.sendRequest("GET", "/test", "", "text/plain", "*/*", new HashMap<>(), new Object[0]);
+      ClientResponse result = c.sendRequest("GET", "/test", """
+""", "text/plain", "*/*", new HashMap<>(), new Object[0]);
       System.out.println("Result of request with id: 136478: " + result.getResponse().trim());
     
     } catch (Exception e) {

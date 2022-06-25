@@ -87,7 +87,7 @@ public class Res extends RESTService {
    * posttest
    *
    * 
-   * @param body  a JSONObject
+   * @param body descr a JSONObject
    * 
    * @return Response 
    * 
